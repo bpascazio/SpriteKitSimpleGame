@@ -8,24 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		C1469C9E1C505C8B008AED2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1469C9D1C505C8B008AED2F /* AppDelegate.swift */; };
-		C1469CA01C505C8B008AED2F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C1469C9F1C505C8B008AED2F /* GameScene.sks */; };
 		C1469CA21C505C8B008AED2F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1469CA11C505C8B008AED2F /* GameScene.swift */; };
 		C1469CA41C505C8B008AED2F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1469CA31C505C8B008AED2F /* GameViewController.swift */; };
 		C1469CA71C505C8B008AED2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1469CA51C505C8B008AED2F /* Main.storyboard */; };
 		C1469CA91C505C8B008AED2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1469CA81C505C8B008AED2F /* Assets.xcassets */; };
 		C1469CAC1C505C8B008AED2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1469CAA1C505C8B008AED2F /* LaunchScreen.storyboard */; };
+		C1469CB41C5079A8008AED2F /* background-music-aac.caf in Resources */ = {isa = PBXBuildFile; fileRef = C1469CB31C5075D4008AED2F /* background-music-aac.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C1469C9A1C505C8B008AED2F /* SpriteKitSimpleGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpriteKitSimpleGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1469C9D1C505C8B008AED2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C1469C9F1C505C8B008AED2F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		C1469CA11C505C8B008AED2F /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		C1469CA31C505C8B008AED2F /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		C1469CA61C505C8B008AED2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C1469CA81C505C8B008AED2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1469CAB1C505C8B008AED2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1469CAD1C505C8B008AED2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1469CB31C5075D4008AED2F /* background-music-aac.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "background-music-aac.caf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,13 +59,13 @@
 			isa = PBXGroup;
 			children = (
 				C1469C9D1C505C8B008AED2F /* AppDelegate.swift */,
-				C1469C9F1C505C8B008AED2F /* GameScene.sks */,
 				C1469CA11C505C8B008AED2F /* GameScene.swift */,
 				C1469CA31C505C8B008AED2F /* GameViewController.swift */,
 				C1469CA51C505C8B008AED2F /* Main.storyboard */,
 				C1469CA81C505C8B008AED2F /* Assets.xcassets */,
 				C1469CAA1C505C8B008AED2F /* LaunchScreen.storyboard */,
 				C1469CAD1C505C8B008AED2F /* Info.plist */,
+				C1469CB31C5075D4008AED2F /* background-music-aac.caf */,
 			);
 			path = SpriteKitSimpleGame;
 			sourceTree = "<group>";
@@ -128,7 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1469CA01C505C8B008AED2F /* GameScene.sks in Resources */,
+				C1469CB41C5079A8008AED2F /* background-music-aac.caf in Resources */,
 				C1469CAC1C505C8B008AED2F /* LaunchScreen.storyboard in Resources */,
 				C1469CA91C505C8B008AED2F /* Assets.xcassets in Resources */,
 				C1469CA71C505C8B008AED2F /* Main.storyboard in Resources */,
@@ -256,6 +256,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SpriteKitSimpleGame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bytefly.SpriteKitSimpleGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -267,6 +268,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SpriteKitSimpleGame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bytefly.SpriteKitSimpleGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
