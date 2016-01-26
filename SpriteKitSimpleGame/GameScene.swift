@@ -8,7 +8,48 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+func + (left: CGPoint, right:CGPoint) -> CGPoint {
+    
+    return CGPoint(x:left.x+right.x, y:left.y+right.y)
+    
+}
+
+func - (left: CGPoint, right:CGPoint) -> CGPoint {
+    
+    return CGPoint(x:left.x-right.x, y:left.y-right.y)
+    
+}
+
+func * (point: CGPoint, scalar:CGFloat) -> CGPoint {
+    
+    return CGPoint(x:point.x*scalar, y:point.y*scalar)
+    
+}
+
+func / (point: CGPoint, scalar:CGFloat) -> CGPoint {
+    
+    return CGPoint(x:point.x/scalar, y:point.y/scalar)
+    
+}
+
+func sqrt(a: CGFloat) -> CGFloat {
+    
+    return CGFloat(sqrtf(Float(a)))
+}
+
+extension CGPoint {
+    
+    func length() -> CGFloat {
+        return sqrt(x*x + y*y)
+    }
+    
+    func normalized() -> CGPoint {
+        return self/length()
+    }
+    
+}
+
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let player = SKSpriteNode(imageNamed: "Player")
     
@@ -33,24 +74,36 @@ class GameScene: SKScene {
         
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       /* Called when a touch begins */
-        
-        for touch in touches {
-            let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.25
-            sprite.yScale = 0.25
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+       
+        guard let touch = touches.first else {
+            return
         }
+        let touchLocation = touch.locationInNode(self)
+        let projectile = SKSpriteNode(imageNamed: "Projectile")
+        projectile.position = player.position
+        projectile.xScale = 0.25
+        projectile.yScale = 0.25
+        
+        let offset = touchLocation - projectile.position
+        if offset.x < 0 {
+            return
+        }
+        addChild(projectile)
+        let direction = offset.normalized()
+        
+        let shootAmount = direction * 1000
+        
+        let realDest = shootAmount + projectile.position
+        
+        let actionMove = SKAction.moveTo(realDest, duration: 2.0)
+        let actionMoveDone = SKAction.removeFromParent()
+        
+        let sequence = SKAction.sequence([actionMove, actionMoveDone])
+        
+        projectile.runAction(sequence)
+        let rotateAction = SKAction.rotateByAngle(CGFloat(M_PI), duration:0.25)
+        projectile.runAction(SKAction.repeatActionForever(rotateAction))
     }
    
     override func update(currentTime: CFTimeInterval) {
@@ -96,6 +149,5 @@ class GameScene: SKScene {
         //monster.runAction(SKAction.repeatActionForever(scaleAction))
                 
     }
-    
-    
+
 }
